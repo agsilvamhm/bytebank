@@ -13,11 +13,13 @@ var NovaTransferenciaComponent = /** @class */ (function () {
         this.aoTransferir = new core_1.EventEmitter();
     }
     NovaTransferenciaComponent.prototype.transferir = function () {
-        console.log('Solicitado nova transferência.');
-        console.log('Valor: ' + this.valor);
-        console.log('Destino: ' + this.destino);
         var valorEmitir = { valor: this.valor, destino: this.destino };
         this.aoTransferir.emit(valorEmitir);
+        this.limparCampos();
+    };
+    NovaTransferenciaComponent.prototype.limparCampos = function () {
+        this.valor = 0;
+        this.destino = 0;
     };
     __decorate([
         core_1.Output()
