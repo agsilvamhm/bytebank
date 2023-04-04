@@ -15,7 +15,7 @@ var ExtratoComponent = /** @class */ (function () {
     };
     __decorate([
         core_1.Input()
-    ], ExtratoComponent.prototype, "transferencia");
+    ], ExtratoComponent.prototype, "transferencias");
     ExtratoComponent = __decorate([
         core_1.Component({
             selector: 'app-extrato',

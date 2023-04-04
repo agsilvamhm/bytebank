@@ -12,6 +12,10 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var nova_Transferencia_component_1 = require("./novaTransferencia/nova-Transferencia.component");
 var forms_1 = require("@angular/forms");
+var extrato_component_1 = require("./extrato/extrato.component");
+var common_1 = require("@angular/common");
+var pt_1 = require("@angular/common/locales/pt");
+common_1.registerLocaleData(pt_1["default"], 'pt');
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -19,13 +23,16 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                nova_Transferencia_component_1.NovaTransferenciaComponent
+                nova_Transferencia_component_1.NovaTransferenciaComponent,
+                extrato_component_1.ExtratoComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule
             ],
-            providers: [],
+            providers: [{ provide: core_1.LOCALE_ID, useValue: 'pt' },
+                { provide: core_1.DEFAULT_CURRENCY_CODE,
+                    useValue: 'BRL' }],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
