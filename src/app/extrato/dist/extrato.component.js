@@ -9,13 +9,16 @@ exports.__esModule = true;
 exports.ExtratoComponent = void 0;
 var core_1 = require("@angular/core");
 var ExtratoComponent = /** @class */ (function () {
-    function ExtratoComponent() {
+    function ExtratoComponent(service) {
+        this.service = service;
     }
     ExtratoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.todas().subscribe(function (transferencias) {
+            console.table(transferencias);
+            _this.transferencias = transferencias;
+        });
     };
-    __decorate([
-        core_1.Input()
-    ], ExtratoComponent.prototype, "transferencias");
     ExtratoComponent = __decorate([
         core_1.Component({
             selector: 'app-extrato',

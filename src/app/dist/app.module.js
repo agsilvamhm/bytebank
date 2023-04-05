@@ -15,6 +15,7 @@ var forms_1 = require("@angular/forms");
 var extrato_component_1 = require("./extrato/extrato.component");
 var common_1 = require("@angular/common");
 var pt_1 = require("@angular/common/locales/pt");
+var http_1 = require("@angular/common/http");
 common_1.registerLocaleData(pt_1["default"], 'pt');
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -28,7 +29,8 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                http_1.HttpClientModule
             ],
             providers: [{ provide: core_1.LOCALE_ID, useValue: 'pt' },
                 { provide: core_1.DEFAULT_CURRENCY_CODE,
