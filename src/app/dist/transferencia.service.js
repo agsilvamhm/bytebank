@@ -26,7 +26,7 @@ var TransferenciaService = /** @class */ (function () {
     };
     TransferenciaService.prototype.adicionar = function (transferencia) {
         this.hidratar(transferencia);
-        this.transferencias.push(transferencia);
+        return this.httpCliente.post(this.url, transferencia);
     };
     TransferenciaService.prototype.hidratar = function (transferencia) {
         transferencia.data = new Date();

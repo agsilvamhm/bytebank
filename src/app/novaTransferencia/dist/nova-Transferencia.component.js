@@ -9,13 +9,17 @@ exports.__esModule = true;
 exports.NovaTransferenciaComponent = void 0;
 var core_1 = require("@angular/core");
 var NovaTransferenciaComponent = /** @class */ (function () {
-    function NovaTransferenciaComponent() {
+    function NovaTransferenciaComponent(service) {
+        this.service = service;
         this.aoTransferir = new core_1.EventEmitter();
     }
     NovaTransferenciaComponent.prototype.transferir = function () {
+        var _this = this;
         var valorEmitir = { valor: this.valor, destino: this.destino };
-        this.aoTransferir.emit(valorEmitir);
-        this.limparCampos();
+        this.service.adicionar(valorEmitir).subscribe(function (resultado) {
+            console.log(resultado);
+            _this.limparCampos();
+        }, function (error) { return console.error(error); });
     };
     NovaTransferenciaComponent.prototype.limparCampos = function () {
         this.valor = 0;
